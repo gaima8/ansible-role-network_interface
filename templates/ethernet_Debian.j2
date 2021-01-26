@@ -18,6 +18,7 @@ iface {{ item.device }} inet {% if item.bootproto is defined %}{{ item.bootproto
 
 {% if item.ipv6_address is defined or item.ipv6_bootproto is defined %}
 iface {{ item.device }} inet6 {% if item.ipv6_bootproto is defined %}{{ item.ipv6_bootproto }}{% elif item.ipv6_address is defined %}static{% endif %}
+
 {% include 'Debian_ipv6_config.j2' %}
 {% if item.ipv6_options is defined %}
 {% for option in item.ipv6_options %}
